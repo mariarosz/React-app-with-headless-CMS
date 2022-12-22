@@ -1,6 +1,5 @@
 const url = 'https://adchitects-cms.herokuapp.com'
 const credentials = btoa('adchitects:jsrulezzz')
-//const id = 'MPz3uDxgKR'
 
 const APIService = {
   getPages: async function () {

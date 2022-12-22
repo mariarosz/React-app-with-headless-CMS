@@ -11,7 +11,6 @@ function PageContent({ sections }) {
     const signup = {
       email: event.target.email.value,
     }
-
     const status = await APIService.addToNewsletter(signup)
     setMessage(status.message)
     event.target.reset()
@@ -40,7 +39,7 @@ function PageContent({ sections }) {
                 <blockquote className="content">
                   <QuotesIcon />
                   <p>{section.text}</p>
-                  <footer>{section.author}</footer>
+                  <footer id="author">{section.author}</footer>
                 </blockquote>
               </div>
             )
