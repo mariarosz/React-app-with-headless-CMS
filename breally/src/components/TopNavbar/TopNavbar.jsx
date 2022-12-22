@@ -17,8 +17,13 @@ function TopNavbar({ links }) {
                 <ReactLogo />
               </Link>
             ) : (
-              <Link key={link.id} to={link.url}>
-                <p className="nav-link">{capitalizeLinkName(link.url)}</p>
+              <Link
+                key={link.id}
+                to={link.url}
+                className="nav-link"
+                style={{ textDecoration: 'none' }}
+              >
+                <p>{capitalizeLinkName(link.url)}</p>
               </Link>
             ),
           )}

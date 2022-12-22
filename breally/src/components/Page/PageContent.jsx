@@ -25,7 +25,13 @@ function PageContent({ sections }) {
             return (
               <div key={section.type} className="section">
                 <h1>{section.text}</h1>
-                <img src={section.img} alt={section.text} />
+                <img
+                  src={section.img}
+                  alt={section.text}
+                  id="hero-image"
+                  width="370"
+                  height="384"
+                />
               </div>
             )
           case 'testimonial':
@@ -45,13 +51,13 @@ function PageContent({ sections }) {
                   <label htmlFor="email">
                     <h1>Sign up for our newsletter:</h1>
                   </label>
-                  <div>
+                  <div className="input-group">
                     <input
                       type="email"
                       id="email"
                       name="email"
                       placeholder="Type your email"
-                      className="input"
+                      className="input-field"
                     />
                     <button type="submit" className="default-btn">
                       Sign Up
