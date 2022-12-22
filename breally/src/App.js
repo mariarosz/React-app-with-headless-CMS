@@ -1,10 +1,13 @@
 import './App.css'
-import logo from './assets/logo.svg'
+import TopNavbar from './components/TopNavbar/TopNavbar'
+import { BrowserRouter } from 'react-router-dom'
 
 function App() {
   return (
     <>
-      <img src={{ logo }} alt="breally" />
+      <BrowserRouter>
+        <TopNavbar />
+      </BrowserRouter>
     </>
   )
 }

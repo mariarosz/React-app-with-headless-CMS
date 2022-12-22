@@ -1,0 +1,12 @@
+.navbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  box-sizing: content-box;
+  padding: 1rem;
+  width: 100vw;
+}
+
+.nav-link {
+  text-decoration: inherit;
+}
