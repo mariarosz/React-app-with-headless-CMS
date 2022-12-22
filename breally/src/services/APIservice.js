@@ -24,15 +24,20 @@ const APIService = {
     return await res.json()
   },
 
-  addToNewsletter: async function (event) {
-    const res = await fetch(`${url}/newsletter`, {
-      method: 'POST',
-      headers: {
-        Authorization: `Basic ${credentials}`,
-      },
-      body: JSON.stringify(event),
-    })
-    return await res.json()
+  addToNewsletter: async function (email) {
+    try {
+      const res = await fetch(`${url}/newsletter`, {
+        method: 'POST',
+        headers: {
+          'Content-type': 'application/json',
+          Authorization: `Basic ${credentials}`,
+        },
+        body: JSON.stringify(email),
+      })
+      return await res.json()
+    } catch (err) {
+      return console.log('Error adding email', err)
+    }
   },
 }
 

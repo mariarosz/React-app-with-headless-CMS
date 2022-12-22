@@ -1,6 +1,22 @@
 import './PageContent.css'
+import { ReactComponent as QuotesIcon } from '../../assets/quotation-mark.svg'
+import APIService from '../../services/APIservice'
+import { useState } from 'react'
 
 function PageContent({ sections }) {
+  const [message, setMessage] = useState('')
+
+  async function handleSubmit(event) {
+    event.preventDefault()
+    const signup = {
+      email: event.target.email.value,
+    }
+
+    const status = await APIService.addToNewsletter(signup)
+    setMessage(status.message)
+    event.target.reset()
+  }
+
   return (
     <div>
       {sections.map((section) => {
@@ -14,8 +30,9 @@ function PageContent({ sections }) {
             )
           case 'testimonial':
             return (
-              <div className="section" key={section.type}>
-                <blockquote>
+              <div className="section testimonial" key={section.type}>
+                <blockquote className="content">
+                  <QuotesIcon />
                   <p>{section.text}</p>
                   <footer>{section.author}</footer>
                 </blockquote>
@@ -24,10 +41,23 @@ function PageContent({ sections }) {
           case 'newsletter':
             return (
               <div className="section" key={section.type}>
-                <form>
-                  <label htmlFor="email">Sign up for our newsletter:</label>
-                  <input type="email" id="email" />
-                  <button type="submit">Sign Up</button>
+                <form onSubmit={handleSubmit}>
+                  <label htmlFor="email">
+                    <h1>Sign up for our newsletter:</h1>
+                  </label>
+                  <div>
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      placeholder="Type your email"
+                      className="input"
+                    />
+                    <button type="submit" className="default-btn">
+                      Sign Up
+                    </button>
+                  </div>
+                  <p id="confirmation">{message}</p>
                 </form>
               </div>
             )
