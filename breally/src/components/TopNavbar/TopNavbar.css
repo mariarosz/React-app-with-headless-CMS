@@ -2,11 +2,35 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  box-sizing: content-box;
+  align-items: center;
+  box-sizing: border-box;
   padding: 1rem;
   width: 100vw;
+  height: 96px;
+  border-bottom: 1.5px solid #f1f0f0;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+nav {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  align-items: center;
 }
 
 .nav-link {
-  text-decoration: inherit;
+  text-decoration: none;
+}
+
+.default-btn {
+  background-color: #dac2f2;
+  color: black;
+  text-align: center;
+  font-size: 0.9rem;
+  font-weight: 300;
+  padding: 1rem 2.5rem;
+  border: none;
+  border-radius: 99px;
+  cursor: pointer;
 }
